@@ -28,8 +28,7 @@ public class HelloController {
   @ResponseBody
   public HashMap<String, Object> bridge(HttpServletRequest request) {
     long tempoInicial = System.currentTimeMillis();
-    //int numero = Integer.parseInt(request.getParameter("entrada"));
-    int numero = 100;
+    int numero = Integer.parseInt(request.getParameter("entrada"));
     int cont = 0;
     ArrayList<Integer> primeiraLista = new ArrayList<Integer>();
     for (int i = numero - 1; i >= 1 ; i--) {
