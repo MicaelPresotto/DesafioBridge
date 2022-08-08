@@ -7,10 +7,12 @@ class Input extends React.Component {
   constructor() {
     super();
     this.state = {
-      entrada: ""
+      entrada: "",
+      valor: ""
     };
     this.onChange = (evento) => {
       this.setState({ entrada: evento.target.value });
+
     };
     this.onSubmit = (evento) => {
       evento.preventDefault();
@@ -19,7 +21,7 @@ class Input extends React.Component {
           "https://desafiobridgeheroku.herokuapp.com/desafio?entrada=" +
             this.state.entrada
         )
-        .then((res) => console.log(res.data))
+        .then((res) => this.setState({valor: res.data}))
         .catch((err) => console.log(err));
     };
   }
@@ -37,8 +39,9 @@ class Input extends React.Component {
           {" "}
           Enviar{" "}
         </button>
+        Resultado: <h1>{this.state.valor}</h1>
       </div>
-    );
+    )
   }
 }
 ReactDOM.render(<Input />, document.getElementById("root"));
