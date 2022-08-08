@@ -4,11 +4,15 @@ import axios from "axios";
 import "./index.css";
 
 class Input extends React.Component {
+  componentDidMount() {
+    document.title = "Desafio Bridge"; 
+ }
   constructor() {
     super();
+
     this.state = {
       entrada: "",
-      valor: ""
+      valor: {resultado:null, tempodeexecucao:null}
     };
     this.onChange = (evento) => {
       this.setState({ entrada: evento.target.value });
@@ -16,13 +20,18 @@ class Input extends React.Component {
     };
     this.onSubmit = (evento) => {
       evento.preventDefault();
-      axios
+      if (this.state.entrada > 1){
+        axios
         .get(
           "https://desafiobridgeheroku.herokuapp.com/desafio?entrada=" +
             this.state.entrada
         )
         .then((res) => this.setState({valor: res.data}))
         .catch((err) => console.log(err));
+      }else{
+        this.setState({valor:{resultado: "Numero tem que ser maior que 1", tempodeexecucao:null}});
+      }
+
     };
   }
   render() {
@@ -41,8 +50,8 @@ class Input extends React.Component {
           Enviar{" "}
         </button>
         <br></br>
-        <text>Resultado: </text><h2>{this.state.valor.Resultado}</h2>
-        <text>Tempo de Execução: </text><h2>{this.state.valor.TempoDeExecucao} ms</h2>
+        <text>{this.state.valor.resultado == null ? "Digite um número maior que 1":"Resultado: "}</text><h2>{this.state.valor.resultado}</h2>
+        <text>{this.state.valor.tempodeexecucao == null ? "":"Tempo de Execução: "}</text><h2>{this.state.valor.tempodeexecucao == null ? "": this.state.valor.tempodeexecucao + 'ms'}</h2>
         <p>Feito por Micael Presotto💙</p>
       </div>
     )

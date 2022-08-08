@@ -2,12 +2,16 @@ package com.springdemo.testebridge.Controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.node.NumericNode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,9 +30,23 @@ public class HelloController {
 
   @RequestMapping(value = "desafio")
   @ResponseBody
-  public HashMap<String, Object> bridge(HttpServletRequest request) {
+  public HashMap<String, Object> bridge(HttpServletRequest request, HttpServletResponse response) {
+    String entrada = request.getParameter("entrada");
+    int numero = 0;
+    try{
+      numero = Integer.parseInt(entrada);
+      if(numero <= 1){
+        throw new Exception("Tende ser um numero maior que 1");
+      }
+
+    }
+    catch(Exception e){
+      response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+      return null;
+    }
+    
+
     long tempoInicial = System.currentTimeMillis();
-    int numero = Integer.parseInt(request.getParameter("entrada"));
     int cont = 0;
     ArrayList<Integer> primeiraLista = new ArrayList<Integer>();
     for (int i = numero - 1; i >= 1 ; i--) {
@@ -39,8 +57,8 @@ public class HelloController {
       primeiraLista = segundaLista;
     }
     HashMap<String, Object> hash = new HashMap<String, Object>();
-    hash.put("Resultado",cont);
-    hash.put("TempoDeExecucao",System.currentTimeMillis() - tempoInicial);
+    hash.put("resultado",cont);
+    hash.put("tempodeexecucao",System.currentTimeMillis() - tempoInicial);
     return hash;
     
   }
