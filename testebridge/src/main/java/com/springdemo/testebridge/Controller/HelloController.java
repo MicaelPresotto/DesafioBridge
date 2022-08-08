@@ -50,7 +50,5 @@ public class HelloController {
       lista2 = lista1;
     }
     return cont;
-    long elapsed = System.currentTimeMillis() - start;
-    System.out.println("o metodo executou em " + elapsed);
   }
 }
