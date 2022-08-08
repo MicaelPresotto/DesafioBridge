@@ -28,18 +28,22 @@ class Input extends React.Component {
   render() {
     return (
       <div>
-        Entrada:{" "}
+        <h1>Desafio Bridge</h1>
+        <text>Entrada:</text>
         <input
           name="entrada"
           value={this.state.entrada}
           onChange={this.onChange}
           type="number"
+          placeholder="Digite um número"
         />
         <button type="submit" onClick={this.onSubmit}>
-          {" "}
           Enviar{" "}
         </button>
-        Resultado: <h1>{this.state.valor}</h1>
+        <br></br>
+        <text>Resultado: </text><h2>{this.state.valor.Resultado}</h2>
+        <text>Tempo de Execução: </text><h2>{this.state.valor.TempoDeExecucao} ms</h2>
+        <p>Feito por Micael Presotto💙</p>
       </div>
     )
   }

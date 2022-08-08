@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,29 +26,32 @@ public class HelloController {
 
   @RequestMapping(value = "desafio")
   @ResponseBody
-  public int bridge(HttpServletRequest request) {
-    long start = System.currentTimeMillis();
-    int numero = Integer.parseInt(request.getParameter("entrada"));
-    ArrayList<Integer> listanumero = new ArrayList<Integer>();
-    for(int count=1; count <= numero; count++){
-      if(numero % count == 0){
-        listanumero.add(count);
-      }
-    }
+  public HashMap<String, Object> bridge(HttpServletRequest request) {
+    long tempoInicial = System.currentTimeMillis();
+    //int numero = Integer.parseInt(request.getParameter("entrada"));
+    int numero = 100;
     int cont = 0;
-    ArrayList<Integer> lista2 = new ArrayList<Integer>();
+    ArrayList<Integer> primeiraLista = new ArrayList<Integer>();
     for (int i = numero - 1; i >= 1 ; i--) {
-      ArrayList<Integer> lista1 = new ArrayList<Integer>();
-      for (int j = 1; j <= i; j++) {
-        if (i % j == 0){
-          lista1.add(j);
-        }
-      }
-      if (lista1.size() == lista2.size()){
+      ArrayList<Integer> segundaLista = calculadivisores(i);
+      if (primeiraLista.size() == segundaLista.size()){
         cont++;
       }
-      lista2 = lista1;
+      primeiraLista = segundaLista;
     }
-    return cont;
+    HashMap<String, Object> hash = new HashMap<String, Object>();
+    hash.put("Resultado",cont);
+    hash.put("TempoDeExecucao",System.currentTimeMillis() - tempoInicial);
+    return hash;
+    
+  }
+  private ArrayList<Integer> calculadivisores(int k){
+    ArrayList<Integer> lista = new ArrayList<Integer>();
+    for(int count=1; count <= k; count++){
+      if(k % count == 0){
+        lista.add(count);
+      }
+  }
+  return lista;
   }
 }

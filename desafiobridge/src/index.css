@@ -5,11 +5,15 @@
 }
 :root {
   font-size: 62.5%; /* 1 rem = 10 px */
+  --primary-color: #24252e;
+  --secondary-color: #0094fc;
+  --white: #ffffff;
 }
 html,
 body {
   width: 100%;
   height: 100%;
+
 }
 body {
   margin: 0;
@@ -18,14 +22,62 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--primary-color);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-button {
+div{
+  display: inline-block;
   border-radius: 0.5rem;
-  background-color: purple;
-  color: white;
+  margin-left: 0.3rem;
+  width: 100%;
+  text-align: center;
+  margin-top: .4rem;
+
+}
+
+button {
+  padding-inline: 2rem;
+  padding-block: .2rem;
+  border-radius: 0.5rem;
+  background-color: var(--primary-color);
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+  margin-left: 1rem;
+  transition: background 0.5s;
+}
+button:hover{
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+input{
+  border-radius: 0.4rem;
+  border-style: solid;
+  border-color: var(--primary-color);
+}
+text{
+  font-size: medium;
+  font-weight: 700;
+  height: 0.25rem;
+  margin-right: 1rem;
+  color: var(--white);
+}
+h2{
+  color: var(--white);
+}
+h1,
+p{
+  color: var(--secondary-color)
+}
+h1{
+  text-align: center;
+  margin-bottom: .7rem;
+}
+p{
+  font-weight: 700;
+  text-align: center;
+  margin-top: .7rem;
 }
