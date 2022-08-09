@@ -1,13 +1,13 @@
-package com.springdemo.testebridge;
+package com.desafiobridgebackend.desafiobridge_backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TestebridgeApplication {
+public class DesafiobridgeBackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TestebridgeApplication.class, args);
+		SpringApplication.run(DesafiobridgeBackendApplication.class, args);
 	}
 
 }

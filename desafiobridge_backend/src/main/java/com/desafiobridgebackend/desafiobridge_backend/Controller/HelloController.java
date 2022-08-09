@@ -1,4 +1,4 @@
-package com.springdemo.testebridge.Controller;
+package com.desafiobridgebackend.desafiobridge_backend.Controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,7 +28,7 @@ public class HelloController {
     return "Hello " + name;
   }
 
-
+  @CrossOrigin
   @RequestMapping(value = "desafio")
   @ResponseBody
   public HashMap<String, Object> bridge(HttpServletRequest request, HttpServletResponse response) {

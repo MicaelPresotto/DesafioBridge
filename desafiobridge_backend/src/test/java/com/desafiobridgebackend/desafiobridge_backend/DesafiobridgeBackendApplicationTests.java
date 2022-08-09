@@ -1,10 +1,10 @@
-package com.springdemo.testebridge;
+package com.desafiobridgebackend.desafiobridge_backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TestebridgeApplicationTests {
+class DesafiobridgeBackendApplicationTests {
 
 	@Test
 	void contextLoads() {

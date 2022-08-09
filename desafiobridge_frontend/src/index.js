@@ -21,10 +21,13 @@ class Input extends React.Component {
     this.onSubmit = (evento) => {
       evento.preventDefault();
       if (this.state.entrada > 1){
+        axios.defaults.headers.get['Content-Type'] ='application/json;charset=utf-8';
+        axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
+        
         axios
         .get(
           "https://desafiobridgeheroku.herokuapp.com/desafio?entrada=" +
-            this.state.entrada
+            this.state.entrada, {withCredentials: false}
         )
         .then((res) => this.setState({valor: res.data}))
         .catch((err) => console.log(err));
