@@ -1,4 +1,4 @@
-# Desenvolvimento Web Full Stack
+# Desafio Bridge Web Full Stack
 
 Projeto realizado para uma vaga de bolsista.
 
