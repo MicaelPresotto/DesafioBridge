@@ -34,9 +34,8 @@ ele retorna então uma mensagem dizendo que é necessário que o usuário coloqu
   * Axios
 
 ## Como usar
-Se não quiser rodar o projeto localmente, apenas acesse: https://bridgefrontend.herokuapp.com/
 
-Caso contrário, como a aplicação foi dividida em duas partes, front-end e back-end e ambas estão neste mesmo repositório, então apenas é necessário clonar e instalar o seguinte:
+Como a aplicação foi dividida em duas partes, front-end e back-end e ambas estão neste mesmo repositório, então apenas é necessário clonar e instalar o seguinte:
 
 ### Requisitos
   * Git
